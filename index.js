@@ -5,7 +5,8 @@ var level = 0;
 
 var started = false;
 
-$("h1").on("click", function()
+
+$("h1").on("tap", function()
 {
     if (level == 0)
     {
@@ -14,8 +15,7 @@ $("h1").on("click", function()
     }
 });
 
-
-$("h1").on("tap", function()
+$("h1").on("click", function()
 {
     if (level == 0)
     {
@@ -69,6 +69,21 @@ function animateit(color)   //Animation
     }, 100);
 }
 
+$(".btn").on("tap", function()
+{   
+    if (level != 0)
+    {
+        var choosenColor = $(this).attr("id");
+        choosenPattern.push(choosenColor);
+        
+        animateit(choosenColor);
+    
+        //Verificam
+        checkAnswer(choosenPattern.length - 1);
+    }
+})
+
+
 $(".btn").on("click", function()
 {   
     if (level != 0)
@@ -83,19 +98,6 @@ $(".btn").on("click", function()
     }
 })
 
-$(".btn").on("tap", function()
-{   
-    if (level != 0)
-    {
-        var choosenColor = $(this).attr("id");
-        choosenPattern.push(choosenColor);
-        
-        animateit(choosenColor);
-    
-        //Verificam
-        checkAnswer(choosenPattern.length - 1);
-    }
-})
 
 function nextColor()
 {
