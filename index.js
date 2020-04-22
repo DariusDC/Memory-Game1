@@ -1,4 +1,3 @@
-
 var culori = ["green", "red", "yellow", "blue"];
 var pattern = [];
 var choosenPattern = [];
@@ -6,7 +5,7 @@ var level = 0;
 
 var started = false;
 
-$(document).on("keypress", function()
+$("h1").on("click", function()
 {
     if (level == 0)
     {
@@ -30,7 +29,7 @@ function checkAnswer(currentLevel)
     else
     {
         console.log("Ai pierdut");
-        $("h1").text("Game over!");
+        $("h1").text("Game Over! Press Here To Start");
         $("body").addClass("game-over");
         var audio = new Audio("sounds/wrong.mp3");
         audio.play();
@@ -86,4 +85,3 @@ function nextColor()
     level++;
     $("h1").text("Level " + level);
 }
-
