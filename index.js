@@ -14,6 +14,16 @@ $("h1").on("click", function()
     }
 });
 
+
+$("h1").on("tap", function()
+{
+    if (level == 0)
+    {
+        nextColor();
+        started = true;
+    }
+});
+
 function checkAnswer(currentLevel)
 {
     if (pattern[currentLevel] == choosenPattern[currentLevel])
@@ -60,6 +70,20 @@ function animateit(color)   //Animation
 }
 
 $(".btn").on("click", function()
+{   
+    if (level != 0)
+    {
+        var choosenColor = $(this).attr("id");
+        choosenPattern.push(choosenColor);
+        
+        animateit(choosenColor);
+    
+        //Verificam
+        checkAnswer(choosenPattern.length - 1);
+    }
+})
+
+$(".btn").on("tap", function()
 {   
     if (level != 0)
     {
